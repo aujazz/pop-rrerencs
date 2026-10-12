@@ -1,4 +1,5 @@
 import { sql } from "../../../lib/db";
+import { AudioPlayer } from "../../../components/AudioPlayer";
 import { MusicianText } from "../../../components/MusicianText";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +18,16 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
         <Link href="/orquestres" className="inline-flex min-h-11 items-center text-sm text-[#c9a55c] hover:text-white">← Tornar a les orquestres</Link>
         <h1 className="mt-8 break-words font-[Georgia,serif] text-4xl tracking-tight text-[#c9a55c] md:text-6xl">{orquestra.name}</h1>
         <p className="mt-6 max-w-2xl whitespace-pre-line text-base leading-7 text-white/60">{slug === "los-quijotes" ? "Porreres · Música de ball · Des de 1964" : orquestra.description || "La història d’aquesta orquestra encara està pendent d’incorporar."}</p>
+        {!!orquestra.audio?.length && (
+          <section className="mt-8 max-w-4xl" aria-label="Arxiu sonor de l’orquestra">
+            <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>
+            <div className="space-y-4">
+              {orquestra.audio.map((track, index) => (
+                <AudioPlayer key={`${track.url}-${index}`} url={track.url} title={track.title || "Enregistrament"} />
+              ))}
+            </div>
+          </section>
+        )}
         {slug === "los-quijotes" && (
           <article className="mt-8 max-w-4xl space-y-10 text-white/75">
             <p className="text-lg leading-8">{losQuijotes.introduction}</p>

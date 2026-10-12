@@ -20,6 +20,28 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Àudio de les orquestres
+
+Les fitxes d’orquestres fan servir el mateix `AudioPlayer` que les de músics,
+amb controls de reproducció i selector de velocitat. Per afegir enregistraments,
+incorpora el camp opcional `audio` a l’orquestra de `lib/orquestres.ts`:
+
+```ts
+{
+  slug: "los-quijotes",
+  name: "Los Quijotes",
+  audio: [
+    { url: "/orquestres/los-quijotes/enregistrament.mp3", title: "Títol de l’enregistrament" },
+  ],
+}
+```
+
+Desa el fitxer d’àudio a `public/orquestres/los-quijotes/enregistrament.mp3`
+o utilitza una URL HTTPS que apunti directament al fitxer d’àudio.
+L’ordre dels elements de `audio` determina l’ordre dels reproductors.
+Si no hi ha enregistraments, la secció «Arxiu sonor» no es mostra.
+L’exemple és orientatiu: cal aportar el fitxer abans d’afegir-ne la ruta.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

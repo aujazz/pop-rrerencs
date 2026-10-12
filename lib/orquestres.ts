@@ -1,7 +1,13 @@
+export type OrquestraAudio = {
+  url: string;
+  title?: string;
+};
+
 export type Orquestra = {
   slug: string;
   name: string;
   description?: string;
+  audio?: OrquestraAudio[];
 };
 
 export const orquestres: Orquestra[] = [{ slug: "los-quijotes", name: "Los Quijotes" }];
