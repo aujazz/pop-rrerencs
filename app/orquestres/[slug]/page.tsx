@@ -8,6 +8,23 @@ import { losCastigadores, losCastigadoresImages } from "../../../lib/los-castiga
 import { notFound } from "next/navigation";
 import { orquestres } from "../../../lib/orquestres";
 
+function CastigadoresPhotos({ photos }: { photos: typeof losCastigadoresImages }) {
+  return (
+    <div className="my-6 grid items-start gap-5 grid-cols-2 sm:grid-cols-3">
+      {photos.map(photo => (
+        <figure key={photo.src} className="min-w-0">
+          <a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Ampliar fotografia: ${photo.caption}`}>
+            <Image src={photo.src} alt={photo.caption} width={600} height={450}
+              sizes="(max-width: 640px) 45vw, 235px" unoptimized
+              className="h-auto max-h-44 w-full rounded-md object-contain object-top" />
+          </a>
+          <figcaption className="mt-2 text-xs leading-5 text-white/45">{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export default async function OrquestraPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const orquestra = orquestres.find((item) => item.slug === slug);
@@ -32,6 +49,7 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
         {slug === "los-castigadores" && (
           <article className="mt-8 max-w-4xl space-y-10 text-white/75">
             <p className="text-lg leading-8">{losCastigadores.introduction}</p>
+            <CastigadoresPhotos photos={losCastigadoresImages.slice(0, 3)} />
             <section>
               <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Formació · 1964</h2>
               <dl className="grid gap-x-8 sm:grid-cols-2">
@@ -43,10 +61,11 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
                 ))}
               </dl>
             </section>
-            {losCastigadores.history.map(section => (
+            {losCastigadores.history.map((section, index) => (
               <section key={section.title}>
                 <h2 className="mb-3 font-serif text-2xl text-[#c9a55c]">{section.title}</h2>
                 <p className="leading-8"><MusicianText text={section.text} profiles={profiles as {id:number;name:string}[]} /></p>
+                {index === 1 && <CastigadoresPhotos photos={losCastigadoresImages.slice(7, 10)} />}
               </section>
             ))}
             <section>
@@ -59,21 +78,7 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
                 </li>
               ))}</ol>
             </section>
-            <section>
-              <h2 className="mb-5 font-serif text-2xl text-[#c9a55c]">Fotografies de l’arxiu</h2>
-              <div className="grid items-start gap-6 sm:grid-cols-2">
-                {losCastigadoresImages.map(photo => (
-                  <figure key={photo.src}>
-                    <a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Ampliar fotografia: ${photo.caption}`}>
-                      <Image src={photo.src} alt={photo.caption} width={900} height={650}
-                        sizes="(max-width: 640px) 100vw, 448px" unoptimized
-                        className="h-auto w-full rounded-lg object-contain" />
-                    </a>
-                    <figcaption className="mt-3 text-sm text-white/50">{photo.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            </section>
+            <CastigadoresPhotos photos={losCastigadoresImages.slice(3, 7)} />
             <p className="border-t border-white/10 pt-5 text-sm leading-6 text-white/45">
               Font: document «Los Castigadores -historial-» aportat a l’arxiu.
               {" "}<Link href="/orquestres/los-quijotes" className="text-[#c9a55c] underline underline-offset-4">Continuació: Los Quijotes</Link>.
