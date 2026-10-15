@@ -4,7 +4,7 @@ import { MusicianText } from "../../../components/MusicianText";
 import Link from "next/link";
 import Image from "next/image";
 import { losQuijotes } from "../../../lib/los-quijotes";
-import { losCastigadores } from "../../../lib/los-castigadores";
+import { losCastigadores, losCastigadoresImages } from "../../../lib/los-castigadores";
 import { notFound } from "next/navigation";
 import { orquestres } from "../../../lib/orquestres";
 
@@ -58,6 +58,21 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
                   <p className="mt-1 text-sm text-white/45">Font: {source}</p>
                 </li>
               ))}</ol>
+            </section>
+            <section>
+              <h2 className="mb-5 font-serif text-2xl text-[#c9a55c]">Fotografies de l’arxiu</h2>
+              <div className="grid items-start gap-6 sm:grid-cols-2">
+                {losCastigadoresImages.map(photo => (
+                  <figure key={photo.src}>
+                    <a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Ampliar fotografia: ${photo.caption}`}>
+                      <Image src={photo.src} alt={photo.caption} width={900} height={650}
+                        sizes="(max-width: 640px) 100vw, 448px" unoptimized
+                        className="h-auto w-full rounded-lg object-contain" />
+                    </a>
+                    <figcaption className="mt-3 text-sm text-white/50">{photo.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </section>
             <p className="border-t border-white/10 pt-5 text-sm leading-6 text-white/45">
               Font: document «Los Castigadores -historial-» aportat a l’arxiu.
