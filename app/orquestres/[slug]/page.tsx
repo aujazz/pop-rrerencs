@@ -50,6 +50,24 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
         {slug === "orquesta-palace" && (
           <article className="mt-8 max-w-4xl space-y-10 text-white/75">
             <p className="text-lg leading-8">{orquestaPalace.introduction}</p>
+            <div className="grid items-start gap-6 sm:grid-cols-2">
+              {[
+                { file: "Orquesta Palace 04-06-1961..jpg", caption: "Orquesta Palace · 4 de juny de 1961" },
+                { file: "Cartell Orquesta Palace.jpeg", caption: "Cartell d’Orquesta Palace · data no indicada" },
+              ].map(photo => {
+                const src = "/orquestres/orquesta-palace/" + encodeURIComponent(photo.file);
+                return (
+                  <figure key={photo.file} className="min-w-0">
+                    <a href={src} target="_blank" rel="noreferrer" aria-label={"Ampliar: " + photo.caption}>
+                      <Image src={src} alt={photo.caption} width={650} height={500} unoptimized
+                        sizes="(max-width: 640px) 90vw, 330px"
+                        className="h-auto max-h-64 w-full rounded-md object-contain object-left" />
+                    </a>
+                    <figcaption className="mt-2 text-xs text-white/50">{photo.caption}</figcaption>
+                  </figure>
+                );
+              })}
+            </div>
             <section>
               <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Formació inicial · 1960</h2>
               <dl className="grid gap-x-8 sm:grid-cols-2">
