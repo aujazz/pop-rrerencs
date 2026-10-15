@@ -22,7 +22,18 @@ export default async function MusicsPage() {
   `) as Musician[];
 
   const collator = new Intl.Collator("ca", { sensitivity: "base", numeric: true });
-  musicians.sort((a, b) => collator.compare(a.name, b.name));
+  // Ordenar pel primer llinatge; els noms sense llinatge queden al final.
+  const surnameKey = (name: string) => {
+    const parts = name.trim().split(/\\s+/);
+    return parts.length > 1 ? parts.slice(1).join(" ") : "";
+  };
+  musicians.sort((a, b) => {
+    const aSurname = surnameKey(a.name);
+    const bSurname = surnameKey(b.name);
+    if (!aSurname) return bSurname ? 1 : collator.compare(a.name, b.name);
+    if (!bSurname) return -1;
+    return collator.compare(aSurname, bSurname) || collator.compare(a.name, b.name);
+  });
 
   return (
     <main className="min-h-screen bg-[#08090d] px-6 py-8 text-white md:px-12 md:py-16">
