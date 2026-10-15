@@ -4,6 +4,7 @@ import { MusicianText } from "../../../components/MusicianText";
 import Link from "next/link";
 import Image from "next/image";
 import { losQuijotes } from "../../../lib/los-quijotes";
+import { orquestaPalace } from "../../../lib/orquesta-palace";
 import { losCastigadores, losCastigadoresImages } from "../../../lib/los-castigadores";
 import { notFound } from "next/navigation";
 import { orquestres } from "../../../lib/orquestres";
@@ -45,6 +46,25 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
               ))}
             </div>
           </section>
+        )}
+        {slug === "orquesta-palace" && (
+          <article className="mt-8 max-w-4xl space-y-10 text-white/75">
+            <p className="text-lg leading-8">{orquestaPalace.introduction}</p>
+            <section>
+              <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Formació inicial · 1960</h2>
+              <dl className="grid gap-x-8 sm:grid-cols-2">
+                {orquestaPalace.members.map(([name, instrument]) => (
+                  <div key={name} className="flex justify-between gap-4 border-b border-white/10 py-3">
+                    <dt><MusicianText text={name} profiles={profiles as {id:number;name:string}[]} /></dt>
+                    <dd className="text-right text-white/50">{instrument}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+            <p className="border-t border-white/10 pt-5 text-sm leading-6 text-white/45">
+              Font: document «Orquesta Palace -historial-» aportat a l’arxiu.
+            </p>
+          </article>
         )}
         {slug === "los-castigadores" && (
           <article className="mt-8 max-w-4xl space-y-10 text-white/75">
