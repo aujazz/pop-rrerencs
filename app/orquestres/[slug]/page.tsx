@@ -4,6 +4,7 @@ import { MusicianText } from "../../../components/MusicianText";
 import Link from "next/link";
 import Image from "next/image";
 import { losQuijotes } from "../../../lib/los-quijotes";
+import { losCastigadores } from "../../../lib/los-castigadores";
 import { notFound } from "next/navigation";
 import { orquestres } from "../../../lib/orquestres";
 
@@ -27,6 +28,42 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
               ))}
             </div>
           </section>
+        )}
+        {slug === "los-castigadores" && (
+          <article className="mt-8 max-w-4xl space-y-10 text-white/75">
+            <p className="text-lg leading-8">{losCastigadores.introduction}</p>
+            <section>
+              <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Formació · 1964</h2>
+              <dl className="grid gap-x-8 sm:grid-cols-2">
+                {losCastigadores.members.map(([name, instrument]) => (
+                  <div key={name} className="flex justify-between gap-4 border-b border-white/10 py-3">
+                    <dt><MusicianText text={name} profiles={profiles as {id:number;name:string}[]} /></dt>
+                    <dd className="text-right text-white/50">{instrument}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+            {losCastigadores.history.map(section => (
+              <section key={section.title}>
+                <h2 className="mb-3 font-serif text-2xl text-[#c9a55c]">{section.title}</h2>
+                <p className="leading-8"><MusicianText text={section.text} profiles={profiles as {id:number;name:string}[]} /></p>
+              </section>
+            ))}
+            <section>
+              <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Actuacions documentades</h2>
+              <ol>{losCastigadores.performances.map(([date, name, source]) => (
+                <li key={date} className="border-b border-white/10 py-4">
+                  <p className="text-sm text-[#c9a55c]">{date}</p>
+                  <p className="mt-1 text-lg">{name}</p>
+                  <p className="mt-1 text-sm text-white/45">Font: {source}</p>
+                </li>
+              ))}</ol>
+            </section>
+            <p className="border-t border-white/10 pt-5 text-sm leading-6 text-white/45">
+              Font: document «Los Castigadores -historial-» aportat a l’arxiu.
+              {" "}<Link href="/orquestres/los-quijotes" className="text-[#c9a55c] underline underline-offset-4">Continuació: Los Quijotes</Link>.
+            </p>
+          </article>
         )}
         {slug === "los-quijotes" && (
           <article className="mt-8 max-w-4xl space-y-10 text-white/75">
