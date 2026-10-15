@@ -24,7 +24,7 @@ export default async function MusicsPage() {
   const collator = new Intl.Collator("ca", { sensitivity: "base", numeric: true });
   // Ordenar pel primer llinatge; els noms sense llinatge queden al final.
   const surnameKey = (name: string) => {
-    const parts = name.trim().split(/\\s+/);
+    const parts = name.trim().split(/\s+/);
     return parts.length > 1 ? parts.slice(1).join(" ") : "";
   };
   musicians.sort((a, b) => {
