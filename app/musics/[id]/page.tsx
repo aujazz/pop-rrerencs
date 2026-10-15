@@ -78,6 +78,9 @@ export default async function MusicianPage({
   const gallery = images.slice(1);
   const paragraphs = musician.biography?.split(String.fromCharCode(10,10)).filter(Boolean) || [];
   const isTomeu = musician.name === "Tomeu Salleras Lladó";
+  const displayedAudio = isTomeu
+    ? [{ id: -1, url: "/musics/tomeu-salleras-llado/Tomeu%20sabater.mp3", title: "Entrevista a Tomeu Salleras Lladó", sort_order: 0 }]
+    : audio;
   const photo = (image: MusicianImage) => (
     <figure key={image.id} className="my-8">
       <a href={image.url} target="_blank" rel="noreferrer" aria-label={"Ampliar fotografia: " + (image.caption || musician.name)} className="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c9a55c]">
@@ -99,7 +102,7 @@ export default async function MusicianPage({
             {musician.birth_date && <p className="mt-2 text-sm text-white/50">Naixement · {new Date(musician.birth_date).toLocaleDateString("ca-ES", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"})}</p>}
           </div>
         </header>
-        {audio.length > 0 && <section className="mt-8" aria-label="Entrevista i arxiu sonor"><h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>{isTomeu && <p className="mb-4 text-sm text-white/50">Entrevista del 31 de gener de 2023 · Durada aproximada: 1 h 9 min</p>}<div className="space-y-4">{audio.map(track => <AudioPlayer key={track.id} url={track.url} title={track.title || "Enregistrament"} />)}</div></section>}
+        {displayedAudio.length > 0 && <section className="mt-8" aria-label="Entrevista i arxiu sonor"><h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>{isTomeu && <p className="mb-4 text-sm text-white/50">Entrevista del 31 de gener de 2023</p>}<div className="space-y-4">{displayedAudio.map(track => <AudioPlayer key={track.id} url={track.url} title={track.title || "Enregistrament"} />)}</div></section>}
         <article className="mt-8 text-base leading-8 text-white/75 sm:text-lg">
           {paragraphs.length ? paragraphs.map((paragraph, index) => <div key={index}>
             <p className="mb-6 whitespace-pre-line">{paragraph}</p>
