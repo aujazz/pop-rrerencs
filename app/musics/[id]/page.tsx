@@ -102,7 +102,7 @@ export default async function MusicianPage({
             {musician.birth_date && <p className="mt-2 text-sm text-white/50">Naixement · {new Date(musician.birth_date).toLocaleDateString("ca-ES", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"})}</p>}
           </div>
         </header>
-        {displayedAudio.length > 0 && <section className="mt-8" aria-label="Entrevista i arxiu sonor"><h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>{isTomeu && <p className="mb-4 text-sm text-white/50">Entrevista del 31 de gener de 2023</p>}<div className="space-y-4">{displayedAudio.map(track => <AudioPlayer key={track.id} url={track.url} title={track.title || "Enregistrament"} />)}</div></section>}
+        {displayedAudio.length > 0 && <section className="mt-8" aria-label="Entrevista i arxiu sonor"><h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>{isTomeu && <p className="mb-4 text-sm text-white/50">Entrevista del 31 de gener de 2023</p>}<div className="space-y-4">{displayedAudio.map(track => <AudioPlayer key={track.id} url={track.url} title="Fragments de l’entrevista" />)}</div></section>}
         <article className="mt-8 text-base leading-8 text-white/75 sm:text-lg">
           {paragraphs.length ? paragraphs.map((paragraph, index) => <div key={index}>
             <p className="mb-6 whitespace-pre-line">{paragraph}</p>
