@@ -14,6 +14,7 @@ export const orquestres: Orquestra[] = [
   {
     slug: "orquesta-palace",
     name: "Orquesta Palace",
+    description: "Porreres · Orquestra · Des de 1960",
   },
   {
     slug: "los-castigadores",
