@@ -10,7 +10,15 @@ export type Orquestra = {
   audio?: OrquestraAudio[];
 };
 
-export const orquestres: Orquestra[] = [{ slug: "los-quijotes", name: "Los Quijotes" }];
+export const orquestres: Orquestra[] = [
+  {
+    slug: "los-quijotes",
+    name: "Los Quijotes",
+    audio: [
+      { url: "/orquestres/los-quijotes/Quijotes.mp3", title: "Enregistrament de Los Quijotes" },
+    ],
+  },
+];
 
 const alphabet = new Intl.Collator("ca", { sensitivity: "base", numeric: true });
 export function sortedOrquestres() {
