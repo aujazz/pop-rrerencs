@@ -41,7 +41,7 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
             <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>
             <div className="space-y-4">
               {orquestra.audio.map((track, index) => (
-                <AudioPlayer key={`${track.url}-${index}`} url={track.url} title={track.title || "Enregistrament"} />
+                <AudioPlayer key={`${track.url}-${index}`} url={track.url} title="Fragments de l’entrevista" />
               ))}
             </div>
           </section>
