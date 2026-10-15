@@ -15,6 +15,7 @@ export const orquestres: Orquestra[] = [
     slug: "los-castigadores",
     name: "Los Castigadores",
     description: "Porreres · Grup musical · 1964",
+    audio: [{ url: "/orquestres/los-castigadores/Castigadores.mp3", title: "Enregistrament de Los Castigadores" }],
   },
   {
     slug: "los-quijotes",
