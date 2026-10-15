@@ -25,3 +25,46 @@ export const losCastigadores = {
     ["22 de desembre de 1964", "Centre parroquial", "Fotografia indicada a l’historial"],
   ] as [string, string, string][],
 };
+
+export const losCastigadoresImages = [
+  {
+    "src": "/orquestres/los-castigadores/Castigadores.jpg",
+    "caption": "Los Castigadores · data no indicada"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%20(Porreres%2C%2007-06-1964).jpg",
+    "caption": "Los Castigadores · Porreres, 7 de juny de 1964"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%2007-06-1964%20es%20centro..png",
+    "caption": "Los Castigadores · 7 de juny de 1964"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%2022-12-1964%20foto%20Vidal%20(1).png",
+    "caption": "Los Castigadores · 22 de desembre de 1964 · Foto Vidal"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%2022-12-1964%20foto%20Vidal%20(2).png",
+    "caption": "Los Castigadores · 22 de desembre de 1964 · Foto Vidal"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%2022-12-1964%20foto%20Vidal%20(3).jpeg",
+    "caption": "Los Castigadores · 22 de desembre de 1964 · Foto Vidal"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%2026-08-1964%20Verbena%20a%20la%20plac%CC%A7a%20de%20toros%20de%20Porreres..jpg",
+    "caption": "Verbena a la plaça de toros de Porreres · 26 d’agost de 1964"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%20Inca%2C%201964%20(1).jpg",
+    "caption": "Los Castigadores · Inca, 1964"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%20Inca%2C%201964%20(2).png",
+    "caption": "Los Castigadores · Inca, 1964"
+  },
+  {
+    "src": "/orquestres/los-castigadores/Los%20Castigadores%20Inca%2C%201964%20(3).png",
+    "caption": "Los Castigadores · Inca, 1964"
+  }
+];
