@@ -38,7 +38,7 @@ export default async function OrquestraPage({ params }: { params: Promise<{ slug
         <p className="mt-6 max-w-2xl whitespace-pre-line text-base leading-7 text-white/60">{slug === "los-quijotes" ? "Porreres · Música de ball · Des de 1964" : orquestra.description || "La història d’aquesta orquestra encara està pendent d’incorporar."}</p>
         {!!orquestra.audio?.length && (
           <section className="mt-8 max-w-4xl" aria-label="Arxiu sonor de l’orquestra">
-            <h2 className="mb-4 font-serif text-2xl text-[#c9a55c]">Arxiu sonor</h2>
+            
             <div className="space-y-4">
               {orquestra.audio.map((track, index) => (
                 <AudioPlayer key={`${track.url}-${index}`} url={track.url} title="Fragments de l’entrevista" />
