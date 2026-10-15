@@ -12,6 +12,10 @@ export type Orquestra = {
 
 export const orquestres: Orquestra[] = [
   {
+    slug: "orquesta-palace",
+    name: "Orquesta Palace",
+  },
+  {
     slug: "los-castigadores",
     name: "Los Castigadores",
     description: "Porreres · Grup musical · 1964",
