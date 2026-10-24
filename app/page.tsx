@@ -82,12 +82,12 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-5 md:px-12">
 
 
-          <div className="grid grid-flow-col auto-cols-[85%] gap-px overflow-x-auto overscroll-x-contain snap-x snap-mandatory border border-white/[0.08] bg-white/[0.08] md:grid-flow-row md:auto-cols-auto md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-px border border-white/[0.08] bg-white/[0.08] md:grid-cols-4">
             {sections.map((section) => (
               <Link
   key={section.number}
   href={section.href}
-  className="group snap-start min-h-[200px] md:min-h-[240px] bg-[#0b0c11] p-5 text-left transition duration-500 hover:bg-[#101116] md:p-5 lg:p-6"
+  className="group min-h-[200px] md:min-h-[240px] bg-[#0b0c11] p-5 text-left transition duration-500 hover:bg-[#101116] md:p-5 lg:p-6"
 >
                 <div className="flex items-start justify-between">
                   <span className="text-[10px] tracking-[0.25em] text-white/20">
