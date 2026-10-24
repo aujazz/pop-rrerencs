@@ -1,0 +1,26 @@
+{
+  "name": "Pop-rrerencs",
+  "short_name": "Pop-rrerencs",
+  "description": "La memòria musical de Porreres",
+  "lang": "ca",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#08090d",
+  "theme_color": "#08090d",
+  "icons": [
+    {
+      "src": "/icons/escut-guitarra-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/escut-guitarra-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
